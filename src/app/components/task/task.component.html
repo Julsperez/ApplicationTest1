@@ -1,0 +1,15 @@
+<div class="complete-button" (click)="toggleDone()">
+    <fa-icon [class.checked]="completed" [icon]="stateIcon"></fa-icon>
+</div>
+<p class="task-description">{{task.nameInfo}}</p> 
+<div (click)="toggleMenu()">
+    <fa-icon [icon]="moreIcon"></fa-icon>
+</div>
+
+<div class="menu" [class.opened]="open">
+    <ul>
+        <li><fa-icon [icon]="idone"></fa-icon><span>Completada</span></li>
+        <li><fa-icon [icon]="iwarning"></fa-icon><span>Pendiente</span></li>
+        <li><fa-icon [icon]="idelete"></fa-icon><span>Borrar</span></li>
+    </ul>
+</div>

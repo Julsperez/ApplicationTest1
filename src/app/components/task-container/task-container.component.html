@@ -1,1 +1,23 @@
-<div *ngFor="let t of tasks" [class.t.state]>{{t.nameInfo}}:{{t.state}}</div>
+<h2>Mis tareas</h2>
+
+<div class="add-task">
+    <input type="text" name="" id="" placeholder="+ Add task"/>
+</div>
+
+
+<app-task class="task {{t.state}}" 
+    *ngFor="let t of tasks; index as i" 
+    [task]="t"
+    (taskStateChanged)="onStateChanged($event, i)">
+</app-task>
+
+
+<h2 *ngIf="completedLen !== 0">Completed</h2>
+<app-task
+    class="{{t.state}}" 
+    *ngFor="let t of completedTasks; index as i" 
+    [task]="t"
+    (taskStateChanged)="onStateChanged($event, i)">
+</app-task>
+
+
